@@ -2,7 +2,7 @@
 One general way to gain a foothold on a user's machine in a red-teaming engagement is the use of delivering a document that has a macro enabled that executes a command, which is triggered upon the user opening the document. This program generates one such document in ODT format (I may add Word, Excel and ODS documents later).
 
 ### Update
-Malmacro now supports commands of arbitrary length. This has particular application to obfuscated powershell commands, which can be extremely lengthy.
+MalMacro now supports commands of arbitrary length. This has particular application to obfuscated powershell commands, which can be extremely lengthy.
 
 Examples:
 
