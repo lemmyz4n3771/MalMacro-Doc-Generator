@@ -1,5 +1,5 @@
 ## Malicious VBA Macro Generator
-One general way to gain a foothold on a user's machine in a red-teaming engagement is the use of delivering a document that has a macro enabled that executes a command, which is triggered upon the user opening the document. This program generates one such document in ODT format (I may add Word, and Excel documents later).
+One general way to gain a foothold on a user's machine in a red-teaming engagement is the use of delivering a document that has a macro enabled that executes a command, which is triggered upon the user opening the document. This program generates one such document in ODT or ODS format (I may add Word, and Excel documents later).
 
 ### Update 2
 MalMacro now supports ODS files.
